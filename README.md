@@ -1,2 +1,2 @@
 # aman.com
-My persona web site
+## My personal web site
