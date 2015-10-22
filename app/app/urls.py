@@ -19,5 +19,5 @@ from . import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^resume/', views.resume, name="resume"),
+    url(r'^', views.resume, name="resume"),
 ]
