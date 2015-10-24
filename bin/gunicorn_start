@@ -1,9 +1,9 @@
 #!/bin/bash
 
 NAME="aman.com"                                   # Name of the application
-DJANGODIR=$HOME/aman.com/app                      # Django project directory
+DJANGODIR=/home/aman/aman.com/app                      # Django project directory
 # SOCKFILE=$HOME/aman.com/run/gunicorn.sock         # we will communicte using this unix socket
-USER=$USER                                        # the user to run as
+USER=aman                                        # the user to run as
 # GROUP=webapps                                     # the group to run as
 NUM_WORKERS=3                                     # how many worker processes should Gunicorn spawn
 DJANGO_SETTINGS_MODULE=app.settings             # which settings file should Django use
@@ -24,10 +24,4 @@ test -d $RUNDIR || mkdir -p $RUNDIR
 
 # Start your Django Unicorn
 # Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
-exec gunicorn ${DJANGO_WSGI_MODULE}:application \
-  --name $NAME \
-  --workers $NUM_WORKERS \
-  --user=$USER \
-  --bind=0.0.0.0:8000 \
-  --log-level=debug \
-  --log-file=-
+exec python $DJANGODIR/manage.py runserver
