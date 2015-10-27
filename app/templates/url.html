@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Curriculum Vitae | Home ::</title>
+<link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary JavaScript plugins) -->
+<script src="/static/js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+ <link href="/static/css/dashboard.css" rel="stylesheet">
+<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Curriculum Vitae Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!-- start menu -->
+</head>
+<body>
+<!-- header -->
+<br>
+<br>
+<div class="col-md-5 col-md-offset-3">
+	<div class="panel panel-default">
+		<div class="panel-body">
+
+			<form method="post">
+			{% csrf_token %}
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">Enter Url</label>
+			    <input type="url" class="form-control" name="url" id="exampleInputEmail1" placeholder="url">
+			  </div>
+			  <button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-body">
+		<p><strong>Domain:</strong> {{ domain }}</p>
+		<p><strong>Tilte:</strong> {{ title}}</p>
+		<p><strong>Description:</strong> {{ description }}</p>
+		<p><strong>Images</strong></p>
+		{% for img in images %}
+			<img src="{{img}}"/>
+		{% endfor %}
+		</div>
+	</div>
+</div>
+</body>
+</html>
